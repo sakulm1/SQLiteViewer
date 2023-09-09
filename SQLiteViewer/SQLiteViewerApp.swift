@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct SQLiteViewerApp: App {
+    @StateObject var db = Database(path: "file:///Users/lukasmaile/Desktop/Car_Database.db", name: "Car_Database.db", tables: [Table(name: "No Tables found")])
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(db)
         }
     }
 }

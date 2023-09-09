@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53B900392AACE76A00E6E03E /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B900382AACE76A00E6E03E /* Table.swift */; };
 		53BE1ED92A7C13B6007A193F /* SQLiteViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BE1ED82A7C13B6007A193F /* SQLiteViewerApp.swift */; };
 		53BE1EDB2A7C13B6007A193F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BE1EDA2A7C13B6007A193F /* ContentView.swift */; };
 		53BE1EDD2A7C13B7007A193F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53BE1EDC2A7C13B7007A193F /* Assets.xcassets */; };
 		53BE1EE02A7C13B7007A193F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53BE1EDF2A7C13B7007A193F /* Preview Assets.xcassets */; };
+		53E0D1762A9E6C60006712F1 /* DBconnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E0D1752A9E6C60006712F1 /* DBconnectView.swift */; };
+		53E0D1782A9E6CF5006712F1 /* TablesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E0D1772A9E6CF5006712F1 /* TablesView.swift */; };
+		53E0D17B2A9E7385006712F1 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E0D17A2A9E7385006712F1 /* Database.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53B900382AACE76A00E6E03E /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		53BE1ED52A7C13B6007A193F /* SQLiteViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLiteViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BE1ED82A7C13B6007A193F /* SQLiteViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteViewerApp.swift; sourceTree = "<group>"; };
 		53BE1EDA2A7C13B6007A193F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		53BE1EDC2A7C13B7007A193F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53BE1EDF2A7C13B7007A193F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		53BE1EE12A7C13B7007A193F /* SQLiteViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SQLiteViewer.entitlements; sourceTree = "<group>"; };
+		53E0D1752A9E6C60006712F1 /* DBconnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBconnectView.swift; sourceTree = "<group>"; };
+		53E0D1772A9E6CF5006712F1 /* TablesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablesView.swift; sourceTree = "<group>"; };
+		53E0D17A2A9E7385006712F1 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		534F81562A9D104300E80447 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53E0D1752A9E6C60006712F1 /* DBconnectView.swift */,
+				53E0D1772A9E6CF5006712F1 /* TablesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		53BE1ECC2A7C13B6007A193F = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +69,9 @@
 		53BE1ED72A7C13B6007A193F /* SQLiteViewer */ = {
 			isa = PBXGroup;
 			children = (
+				53E0D1792A9E7374006712F1 /* Base */,
 				53BE1ED82A7C13B6007A193F /* SQLiteViewerApp.swift */,
+				534F81562A9D104300E80447 /* Views */,
 				53BE1EDA2A7C13B6007A193F /* ContentView.swift */,
 				53BE1EDC2A7C13B7007A193F /* Assets.xcassets */,
 				53BE1EE12A7C13B7007A193F /* SQLiteViewer.entitlements */,
@@ -67,6 +86,15 @@
 				53BE1EDF2A7C13B7007A193F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		53E0D1792A9E7374006712F1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				53E0D17A2A9E7385006712F1 /* Database.swift */,
+				53B900382AACE76A00E6E03E /* Table.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +167,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B900392AACE76A00E6E03E /* Table.swift in Sources */,
 				53BE1EDB2A7C13B6007A193F /* ContentView.swift in Sources */,
+				53E0D1782A9E6CF5006712F1 /* TablesView.swift in Sources */,
 				53BE1ED92A7C13B6007A193F /* SQLiteViewerApp.swift in Sources */,
+				53E0D17B2A9E7385006712F1 /* Database.swift in Sources */,
+				53E0D1762A9E6C60006712F1 /* DBconnectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
