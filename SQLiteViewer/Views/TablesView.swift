@@ -20,13 +20,16 @@ struct TablesView: View {
             }
             HStack{
                 VStack{
-                    List(db.tables ?? [Table(name: "Error")], id: \.id, selection: $selection) { table in
+                    List(db.tables , id: \.id) { table in
                         Text(table.name)
-                    }.onAppear(
-                        perform: db.loadTables
-                    )
+                            .foregroundColor(.blue)
+                            .onTapGesture {
+                                selection = table
+                            }
+                    }.onAppear(perform: db.loadTables)
                     
-                    Text(selection ?? "select a table")
+                    
+                    Text(selection?.name ?? "select a table")
                         .font(.title3)
                 }
                 

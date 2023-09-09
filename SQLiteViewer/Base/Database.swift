@@ -57,7 +57,6 @@ class Database: ObservableObject{
         for table in tables {
             var newTable = Table(name: String(table))
             self.tables.append(newTable)
-            print("Das ist die neu Tabelle \(newTable.name)")
         }
         
     }
@@ -91,7 +90,6 @@ class Database: ObservableObject{
                             return nil
                         }
                         rowData[columnName] = String(cString: textValue)
-                    // You can add more cases for other data types like SQLITE_FLOAT, SQLITE_BLOB, etc.
                     default:
                         print("Unhandled data type for column: \(columnName)")
                     }
