@@ -16,7 +16,6 @@ struct TablesView: View {
             HStack{
                 Text(db.name)
                     .font(.largeTitle)
-
             }
             HStack{
                 VStack{
@@ -25,25 +24,36 @@ struct TablesView: View {
                             .foregroundColor(.blue)
                             .onTapGesture {
                                 selection = table
+                                guard let tableName = selection?.name else {
+                                    print("Table name is nil")
+                                    return
+                                }
+                                let tablename = db.getTableAttributes(tableName)
+                                let attributes = db.getTableAttributes(tableName)
+//                                print(tablename)
+                                for name in attributes{
+                                    db.addOutput(text: name, color: .yellow)
+                                }
                             }
                     }.onAppear(perform: db.loadTables)
                     
                     
                     Text(selection?.name ?? "select a table")
                         .font(.title3)
+                    Terminal()
                 }
-                
-                VStack{
-                    //table content :)
-                }
-                
             }
         }
     }
 }
 
-struct TablesView_Previews: PreviewProvider {
-    static var previews: some View {
-        TablesView()
-    }
+
+
+#Preview {
+    TablesView()
 }
+
+
+
+
+

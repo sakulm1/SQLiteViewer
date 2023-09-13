@@ -7,24 +7,30 @@
 
 import Foundation
 import SQLite3
+import SwiftUI
 
-
+#warning("In der Table class den Parameter 'db' fixen. Denk nicht das dass ist best practice 😔")
 
 class Database: ObservableObject{
     @Published var path: String
     @Published var name: String
     @Published var tables: [Table]
+    @Published var co: [CommandOutput]
+    var connection: OpaquePointer?
     
-    init(path: String, name: String, tables: [Table]) {
+    init(path: String, name: String, tables: [Table], co: [CommandOutput]) {
         self.path = path
         self.name = name
         self.tables = tables
+        self.co = co
+        self.connection = openDatabase()
     }
     
     func clear(){
         path = ""
         name = ""
-        tables = [Table(name: "nothing")]
+        tables.removeAll()
+        co.removeAll()
     }
     
     func openDatabase() -> OpaquePointer? {
@@ -51,14 +57,15 @@ class Database: ObservableObject{
         
         let querry = self.querry(queryStatementString: getTablesString)
         
-        var tables = querry?.compactMap{ $0["name"] as? String} ?? ["Error"]
+        let tables = querry?.compactMap{ $0["name"] as? String} ?? ["No tables found :("]
         
+        self.addOutput(text: "Load Table Names from Database", color: .red)
         
         for table in tables {
-            var newTable = Table(name: String(table))
+            let newTable = Table(name: String(table), db: self)
             self.tables.append(newTable)
+            self.addOutput(text: newTable.name, color: .pink)
         }
-        
     }
     
     func getTables() -> [Table]{
@@ -67,7 +74,7 @@ class Database: ObservableObject{
     
     func querry(queryStatementString: String) -> [[String: Any]]? {
         var queryStatement: OpaquePointer?
-        let db = self.openDatabase()
+        let db = self.connection
         var resultData = [[String: Any]]()
         
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
@@ -91,7 +98,7 @@ class Database: ObservableObject{
                         }
                         rowData[columnName] = String(cString: textValue)
                     default:
-                        print("Unhandled data type for column: \(columnName)")
+                        print("Unhandled data type for column: \(columnName) -> \(sqlite3_column_type(queryStatement, i))")
                     }
                 }
                 
@@ -107,4 +114,17 @@ class Database: ObservableObject{
         return resultData
     }
     
+    func getTableAttributes(_ tableName: String) -> [String]{
+        let statement = "Select * from \(tableName)"
+        let values = self.querry(queryStatementString: statement)
+        #warning("Add guard")
+        let columnNames = values?.compactMap{ $0["name"] as? String }
+        
+        return columnNames ?? ["FATAL ERROR: No attributes found"]
+    }
+    
+    func addOutput(text: String, color: Color?){
+        let newOutput = CommandOutput(text: text, color: color)
+        self.co.append(newOutput)
+    }
 }

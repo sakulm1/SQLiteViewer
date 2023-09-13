@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		536EFF702AB3383300894DA2 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536EFF6F2AB3383300894DA2 /* Terminal.swift */; };
+		536EFF722AB338B700894DA2 /* CommandOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536EFF712AB338B700894DA2 /* CommandOutput.swift */; };
 		53B900392AACE76A00E6E03E /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B900382AACE76A00E6E03E /* Table.swift */; };
 		53BE1ED92A7C13B6007A193F /* SQLiteViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BE1ED82A7C13B6007A193F /* SQLiteViewerApp.swift */; };
 		53BE1EDB2A7C13B6007A193F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BE1EDA2A7C13B6007A193F /* ContentView.swift */; };
@@ -18,7 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		536EFF6F2AB3383300894DA2 /* Terminal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
+		536EFF712AB338B700894DA2 /* CommandOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandOutput.swift; sourceTree = "<group>"; };
 		53B900382AACE76A00E6E03E /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		53B9003C2AADB91A00E6E03E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		53BE1ED52A7C13B6007A193F /* SQLiteViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SQLiteViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BE1ED82A7C13B6007A193F /* SQLiteViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteViewerApp.swift; sourceTree = "<group>"; };
 		53BE1EDA2A7C13B6007A193F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +49,7 @@
 		534F81562A9D104300E80447 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				53BE1EDA2A7C13B6007A193F /* ContentView.swift */,
 				53E0D1752A9E6C60006712F1 /* DBconnectView.swift */,
 				53E0D1772A9E6CF5006712F1 /* TablesView.swift */,
 			);
@@ -69,13 +75,13 @@
 		53BE1ED72A7C13B6007A193F /* SQLiteViewer */ = {
 			isa = PBXGroup;
 			children = (
-				53E0D1792A9E7374006712F1 /* Base */,
 				53BE1ED82A7C13B6007A193F /* SQLiteViewerApp.swift */,
+				53E0D1792A9E7374006712F1 /* Base */,
 				534F81562A9D104300E80447 /* Views */,
-				53BE1EDA2A7C13B6007A193F /* ContentView.swift */,
 				53BE1EDC2A7C13B7007A193F /* Assets.xcassets */,
 				53BE1EE12A7C13B7007A193F /* SQLiteViewer.entitlements */,
 				53BE1EDE2A7C13B7007A193F /* Preview Content */,
+				53B9003C2AADB91A00E6E03E /* README.md */,
 			);
 			path = SQLiteViewer;
 			sourceTree = "<group>";
@@ -93,6 +99,8 @@
 			children = (
 				53E0D17A2A9E7385006712F1 /* Database.swift */,
 				53B900382AACE76A00E6E03E /* Table.swift */,
+				536EFF6F2AB3383300894DA2 /* Terminal.swift */,
+				536EFF712AB338B700894DA2 /* CommandOutput.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -173,6 +181,8 @@
 				53BE1ED92A7C13B6007A193F /* SQLiteViewerApp.swift in Sources */,
 				53E0D17B2A9E7385006712F1 /* Database.swift in Sources */,
 				53E0D1762A9E6C60006712F1 /* DBconnectView.swift in Sources */,
+				536EFF722AB338B700894DA2 /* CommandOutput.swift in Sources */,
+				536EFF702AB3383300894DA2 /* Terminal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

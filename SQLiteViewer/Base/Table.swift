@@ -10,18 +10,25 @@ import Foundation
 
 class Table{
     
-    
     var name: String
-    var attributes: [[String : String]]?
+    var attributes: [String]?
     var primaryKey: String?
     var foreignKey: String?
+    var rows: [[String]]?
     var id: UUID
+    var db: Database?
     
-    init(name: String, attributes: [[String : String]]? = nil, primaryKey: String? = nil, foreignKey: String? = nil) {
+    init(name: String, attributes: [String]? = nil, primaryKey: String? = nil, foreignKey: String? = nil, rows: [[String]]? = nil, db: Database? = nil) {
         self.name = name
         self.attributes = attributes
         self.primaryKey = primaryKey
         self.foreignKey = foreignKey
+        self.rows = rows
+        self.db = db
         self.id = UUID()
+    }
+    
+    func fill(tableName: String){
+        self.attributes = db?.getTableAttributes(tableName)
     }
 }

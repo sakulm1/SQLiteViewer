@@ -68,6 +68,7 @@ struct DBconnectView: View {
                     if btnEdit == false {
                         db.path = dbPath
                         db.name = dbName
+                        
                         _ = db.openDatabase() //Test Connection to db
                     }
                     
